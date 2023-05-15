@@ -37,12 +37,16 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.5
   flutter_bloc: ^8.1.2
+  dio: ^5.1.2
+  retrofit: ^4.0.1
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner:
   flutter_gen_runner:
+  retrofit_generator:
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -64,6 +68,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - .env
     - assets/images/
     - assets/fonts/
     - assets/icons/
