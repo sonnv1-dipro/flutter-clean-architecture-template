@@ -1,4 +1,4 @@
-import 'package:clean_architecture_template/data/enums/flavors.dart';
+import 'package:clean_architecture_template/core/enums/flavors.dart';
 import 'main.dart';
 
 void main() {

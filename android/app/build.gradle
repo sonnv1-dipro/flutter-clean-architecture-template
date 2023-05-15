@@ -36,12 +36,17 @@ android {
             applicationId "com.dipro.example_dev"
             resValue "string", "app_name", "Base DEV"
         }
-        qa {
+        sandbox {
             dimension "flavor-type"
-            applicationId "com.dipro.example_qa"
-            resValue "string", "app_name", "Base QA"
+            applicationId "com.dipro.example_sandbox"
+            resValue "string", "app_name", "Base Sandbox"
         }
         staging {
+            dimension "flavor-type"
+            applicationId "com.dipro.example_staging"
+            resValue "string", "app_name", "Base Staging"
+        }
+        prod {
             dimension "flavor-type"
             applicationId "com.dipro.example"
             resValue "string", "app_name", "Dipro"

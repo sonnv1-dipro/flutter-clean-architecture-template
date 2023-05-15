@@ -1,5 +1,5 @@
 import 'package:clean_architecture_template/core/widget/base_page.dart';
-import 'package:clean_architecture_template/presentation/features/auth/bloc/signup/signup_bloc.dart';
+import 'package:clean_architecture_template/features/auth/bloc/signup/signup_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

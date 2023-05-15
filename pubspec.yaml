@@ -59,14 +59,21 @@ flavorizr:
         applicationId: 'com.dipro.example_dev'
       ios:
         bundleId: 'com.dipro.example_dev'
-    qa:
+    sandbox:
       app:
-        name: 'Base QA'
+        name: 'Base Sandbox'
       android:
-        applicationId: 'com.dipro.example_qa'
+        applicationId: 'com.dipro.example_sandbox'
       ios:
-        bundleId: 'com.dipro.example_qa'
+        bundleId: 'com.dipro.example_sandbox'
     staging:
+      app:
+        name: 'Base Staging'
+      android:
+        applicationId: 'com.dipro.example_staging'
+      ios:
+        bundleId: 'com.dipro.example_staging'
+    prod:
       app:
         name: 'Dipro'
       android:

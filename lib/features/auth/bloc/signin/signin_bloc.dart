@@ -1,4 +1,4 @@
-import 'package:clean_architecture_template/data/enums/handle_status.enum.dart';
+import 'package:clean_architecture_template/core/enums/handle_status.enum.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'signin_event.dart';

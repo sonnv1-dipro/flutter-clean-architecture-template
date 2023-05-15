@@ -1,7 +1,8 @@
 enum Flavor {
   dev,
-  qa,
+  sandbox,
   staging,
+  prod,
 }
 
 class F {
@@ -13,13 +14,14 @@ class F {
     switch (appFlavor) {
       case Flavor.dev:
         return 'Base DEV';
-      case Flavor.qa:
-        return 'Base QA';
+      case Flavor.sandbox:
+        return 'Base Sandbox';
       case Flavor.staging:
+        return 'Base Staging';
+      case Flavor.prod:
         return 'Dipro';
       default:
         return 'title';
     }
   }
-
 }

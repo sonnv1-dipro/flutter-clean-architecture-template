@@ -15,24 +15,33 @@
             ]
         },
         {
-            "name": "qa",
+            "name": "sandbox",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile",
-            "program": "lib/root/main_qa.dart",
+            "program": "lib/root/main_sandbox.dart",
             "args": [
                 "--flavor",
-                "qa"
+                "sandbox"
             ]
         },
         {
-            "name": "release",
+            "name": "staging",
             "request": "launch",
             "type": "dart",
             "program": "lib/root/main_staging.dart",
             "args": [
                 "--flavor",
                 "staging"
+            ]
+        },
+        {
+            "name": "prod",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/root/main_prod.dart",
+            "args": [
+                "--flavor",
+                "prod"
             ]
         }
     ]

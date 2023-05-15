@@ -3,12 +3,12 @@ import 'package:clean_architecture_template/root/setup.dart';
 import 'package:clean_architecture_template/route.dart';
 import 'package:flutter/material.dart';
 
-import 'package:clean_architecture_template/data/enums/flavors.dart';
+import 'package:clean_architecture_template/core/enums/flavors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> runMainApp(Flavor flavor) async {
   F.appFlavor = flavor;
-  Bloc.observer = GlobalBloc();
+  Bloc.observer = AppBlocObserver();
   await setupDependencies();
   runApp(const App());
 }
