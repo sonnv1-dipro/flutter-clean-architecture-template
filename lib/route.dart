@@ -1,9 +1,6 @@
 import 'package:clean_architecture_template/core/widget/base_page.dart';
 import 'package:clean_architecture_template/features/auth/views/signin_page.dart';
 import 'package:clean_architecture_template/features/auth/views/signup_page.dart';
-import 'package:clean_architecture_template/features/post/data/datasources/post_remote_data_source.dart';
-import 'package:clean_architecture_template/features/post/data/repositories/post_repository_impl.dart';
-import 'package:clean_architecture_template/features/post/views/blocs/post/post_bloc.dart';
 import 'package:clean_architecture_template/features/post/views/post_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,6 +11,9 @@ class AppRoute {
       RoutePage<SignInPage>(page: const SignInPage()).build(),
       RoutePage<SignUpPage>(page: const SignUpPage()).build(),
       RoutePage<PostPage>(page: const PostPage(), blocs: [
+        /*
+        * Bug insert bloc
+        */
         // PostBloc(
         //   repository: PostRepositoryImpl(
         //     postRemoteDataSource: PostRemoteDataSourceImplement(),
