@@ -1,6 +1,7 @@
 import 'package:clean_architecture_template/core/widget/base_page.dart';
 import 'package:clean_architecture_template/features/post/data/datasources/post_remote_data_source.dart';
 import 'package:clean_architecture_template/features/post/data/repositories/post_repository_impl.dart';
+import 'package:clean_architecture_template/features/post/domain/usercases/post_placeholder_example.dart';
 import 'package:clean_architecture_template/features/post/views/blocs/post/post_bloc.dart';
 import 'package:clean_architecture_template/features/post/views/blocs/post/post_event.dart';
 import 'package:clean_architecture_template/features/post/views/blocs/post/post_state.dart';
@@ -15,8 +16,10 @@ class PostPage extends BasePage {
     return BlocProvider(
       create: (context) {
         return PostBloc(
-          repository: PostRepositoryImpl(
-            postRemoteDataSource: PostRemoteDataSourceImplement(),
+          usercase: PostPlaceholderExample(
+            repository: PostRepositoryImpl(
+              postRemoteDataSource: PostRemoteDataSourceImplement(),
+            ),
           ),
         );
       },
