@@ -1,4 +1,6 @@
+import 'package:clean_architecture_template/resourse/res.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 mixin DialogPage {
   Future<void> showConfirmAlert({
@@ -47,11 +49,50 @@ mixin DialogPage {
     );
   }
 
-  Future<void> showToast() async {
-    // Todo
+  //show Custom Toast
+  Future<void> showToast({
+    required String message,
+    Toast? totalLength,
+    ToastGravity? gravity,
+    Color? backgroundColor,
+    Color? textColor,
+    double? fontSize,
+  }) async {
+    Fluttertoast.showToast(
+      msg: message,
+      toastLength: totalLength ?? Toast.LENGTH_SHORT,
+      gravity: gravity ?? ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: backgroundColor ?? Colors.black,
+      textColor: textColor ?? Colors.white,
+      fontSize: fontSize ?? 16.0,
+    );
   }
 
-  Future<void> showSnackbar() async {
-    // Todo
+  Future<void> showSnackbar({
+    required BuildContext context,
+    required String message,
+    SnackBarAction? action,
+    Duration? duration,
+    Color? backgroundColor,
+    double? fontSize,
+  }) async {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: Res.styles.bodySmall.copyWith(
+            fontSize: fontSize,
+          ),
+        ),
+        duration: duration ?? const Duration(seconds: 2),
+        action: action,
+        backgroundColor: backgroundColor ?? Colors.black,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+      ),
+    );
   }
 }

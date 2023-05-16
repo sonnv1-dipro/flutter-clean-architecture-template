@@ -1,18 +1,18 @@
 part of 'signin_bloc.dart';
 
-class SigninEvent {
-  const SigninEvent();
+class SignInEvent {
+  const SignInEvent();
 }
 
-class SigninStarted extends SigninEvent {
-  const SigninStarted();
+class SignInStarted extends SignInEvent {
+  const SignInStarted();
 }
 
-class SigninSubmitted extends SigninEvent {
+class SignInSubmitted extends SignInEvent {
   final String email;
   final String password;
 
-  const SigninSubmitted({
+  const SignInSubmitted({
     required this.email,
     required this.password,
   });

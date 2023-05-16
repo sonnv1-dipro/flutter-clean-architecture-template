@@ -11,19 +11,19 @@ class SignInPage extends BasePage {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SigninBloc(),
-      child: BlocListener<SigninBloc, SigninState>(
+      create: (context) => SignInBloc(),
+      child: BlocListener<SignInBloc, SignInState>(
         listener: _onListener,
-        child: const _SigninView(),
+        child: const _SignInView(),
       ),
     );
   }
 
-  void _onListener(BuildContext context, SigninState state) {}
+  void _onListener(BuildContext context, SignInState state) {}
 }
 
-class _SigninView extends BasePage {
-  const _SigninView();
+class _SignInView extends BasePage {
+  const _SignInView();
 
   @override
   Widget build(BuildContext context) {
