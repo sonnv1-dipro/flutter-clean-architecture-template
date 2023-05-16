@@ -1,3 +1,3 @@
-abstract class NetworkBody {
+abstract class NetworkBodyRequest {
   Map<String, dynamic> toJson();
 }
