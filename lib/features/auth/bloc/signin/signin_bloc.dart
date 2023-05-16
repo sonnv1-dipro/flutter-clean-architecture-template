@@ -1,24 +1,24 @@
-import 'package:clean_architecture_template/core/enums/handle_status.enum.dart';
+import 'package:clean_architecture_template/core/enums/handle_status.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'signin_event.dart';
 part 'signin_state.dart';
 
-class SigninBloc extends Bloc<SigninEvent, SigninState> {
-  SigninBloc() : super(const SigninInitial()) {
-    on<SigninStarted>(_init);
-    on<SigninSubmitted>(_submit);
+class SignInBloc extends Bloc<SignInEvent, SignInState> {
+  SignInBloc() : super(const SignInInitial()) {
+    on<SignInStarted>(_init);
+    on<SignInSubmitted>(_submit);
 
-    add(const SigninStarted());
+    add(const SignInStarted());
   }
 
   void _init(
-    SigninStarted event,
-    Emitter<SigninState> emitter,
+    SignInStarted event,
+    Emitter<SignInState> emitter,
   ) {}
 
   void _submit(
-    SigninSubmitted event,
-    Emitter<SigninState> emitter,
+    SignInSubmitted event,
+    Emitter<SignInState> emitter,
   ) {}
 }

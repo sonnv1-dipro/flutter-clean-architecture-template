@@ -1,12 +1,12 @@
 part of 'signin_bloc.dart';
 
-class SigninState {
+class SignInState {
   final String? email;
   final String? password;
   final HandleStatus status;
   final String? error;
 
-  const SigninState({
+  const SignInState({
     required this.status,
     this.email,
     this.password,
@@ -14,15 +14,15 @@ class SigninState {
   });
 }
 
-class SigninInitial extends SigninState {
-  const SigninInitial()
+class SignInInitial extends SignInState {
+  const SignInInitial()
       : super(
           status: HandleStatus.initial,
         );
 }
 
-class SigninWithEmailPasswprdLoading extends SigninState {
-  SigninWithEmailPasswprdLoading({
+class SignInWithEmailPasswprdLoading extends SignInState {
+  SignInWithEmailPasswprdLoading({
     required String email,
     required String password,
   }) : super(
