@@ -23,6 +23,7 @@ dependencies:
   dio: ^5.1.2
   retrofit: ^4.0.1
   flutter_dotenv: ^5.0.2
+  hive: ^2.2.3
 
 dev_dependencies:
   flutter_test:
@@ -32,6 +33,7 @@ dev_dependencies:
   retrofit_generator:
   flutter_lints: ^2.0.0
   flutter_flavorizr: ^2.1.5
+  json_serializable: ^6.6.2
 
 flavorizr:
   app:

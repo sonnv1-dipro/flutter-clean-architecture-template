@@ -11,6 +11,8 @@ class NetworkError {
     switch (statusCode) {
       case 404:
         return NetworkErrorType.notfound;
+      case 401:
+        return NetworkErrorType.unauthorized;
       default:
         return NetworkErrorType.unknown;
     }

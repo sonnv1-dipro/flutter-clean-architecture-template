@@ -1,6 +1,6 @@
 import 'package:clean_architecture_template/core/widget/base_page.dart';
 import 'package:clean_architecture_template/features/auth/bloc/signin/signin_bloc.dart';
-import 'package:clean_architecture_template/features/auth/views/signup_page.dart';
+import 'package:clean_architecture_template/features/post/views/post_page.dart';
 import 'package:clean_architecture_template/route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,7 +34,7 @@ class _SignInView extends BasePage {
       body: Center(
         child: TextButton(
           onPressed: () {
-            Navigator.pushNamed(context, AppRoute.routeName<SignUpPage>());
+            Navigator.pushNamed(context, AppRoute.routeName<PostPage>());
           },
           child: const Text('Go to sign up'),
         ),
