@@ -4,9 +4,13 @@ import 'package:dio/dio.dart';
 
 abstract class RestfulCaller<T> {
   RestfulCaller<T> post();
+
   RestfulCaller<T> put();
+
   RestfulCaller<T> get();
+
   RestfulCaller<T> patch();
+
   RestfulCaller<T> delete();
 
   RestfulCaller<T> instanceJson(T Function(Map<String, dynamic>) cb);
