@@ -1,7 +1,9 @@
 import 'package:clean_architecture_template/core/widget/base_page.dart';
 import 'package:clean_architecture_template/features/auth/bloc/signin/signin_bloc.dart';
 import 'package:clean_architecture_template/features/post/views/post_page.dart';
+import 'package:clean_architecture_template/generated/locale_keys.g.dart';
 import 'package:clean_architecture_template/route.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -36,7 +38,7 @@ class _SignInView extends BasePage {
           onPressed: () {
             Navigator.pushNamed(context, AppRoute.routeName<PostPage>());
           },
-          child: const Text('Go to sign up'),
+          child: Text(LocaleKeys.hello_world.tr()),
         ),
       ),
     );
