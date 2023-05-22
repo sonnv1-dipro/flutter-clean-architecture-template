@@ -24,10 +24,13 @@ dependencies:
   retrofit: ^4.0.1
 
   #Local
-  hive: ^2.2.3
   hive_flutter: ^1.1.0
   
   flutter_dotenv: ^5.0.2
+  hive: ^2.2.3
+
+  #Ultis
+  easy_localization: ^3.0.2
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +40,7 @@ dev_dependencies:
   retrofit_generator:
   flutter_lints: ^2.0.0
   flutter_flavorizr: ^2.1.5
+  json_serializable: ^6.6.2
 
 flavorizr:
   app:
@@ -80,6 +84,7 @@ flutter:
     - .env
     - assets/images/
     - assets/icons/
+    - assets/locales/
   # fonts:
   #   - family: Schyler
   #     fonts:
