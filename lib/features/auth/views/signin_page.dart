@@ -30,17 +30,34 @@ class _SignInView extends BasePage {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Sign In"),
-      ),
-      body: Center(
-        child: TextButton(
-          onPressed: () {
-            Navigator.pushNamed(context, AppRoute.routeName<PostPage>());
-          },
-          child: Text(LocaleKeys.hello_world.tr()),
+        appBar: AppBar(
+          title: const Text("Sign In"),
         ),
-      ),
-    );
+        body: Center(
+          child: TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoute.routeName<PostPage>());
+            },
+            child: Text(
+              LocaleKeys.hello_world.tr(),
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue,
+              ),
+            ),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            debugPrint('context.locale: ${context.locale}');
+            if (context.locale == const Locale('vi', 'VI')) {
+              context.setLocale(const Locale('en', 'US'));
+              return;
+            }
+            context.setLocale(const Locale('vi', 'VI'));
+          },
+          child: const Icon(Icons.add),
+        ));
   }
 }
