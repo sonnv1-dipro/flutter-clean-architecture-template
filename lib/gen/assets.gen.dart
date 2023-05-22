@@ -32,11 +32,22 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [imgLogo];
 }
 
+class $AssetsLocalesGen {
+  const $AssetsLocalesGen();
+
+  /// File path: assets/locales/vi.json
+  String get vi => 'assets/locales/vi.json';
+
+  /// List of all assets
+  List<String> get values => [vi];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLocalesGen locales = $AssetsLocalesGen();
 }
 
 class AssetGenImage {

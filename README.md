@@ -14,3 +14,20 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+## Run flutter pub get command
+```bash
+flutter pub run build_runner watch --delete-conflicting-outputs
+```
+
+
+## Generate language assets:
+  More docs: [Open link](https://pub.dev/packages/easy_localization)
+```bash
+flutter pub run easy_localization:generate -S assets/locales
+```
+
+```bash
+flutter pub run easy_localization:generate -S assets/locales -f keys -o locale_keys.g.dart
+```
