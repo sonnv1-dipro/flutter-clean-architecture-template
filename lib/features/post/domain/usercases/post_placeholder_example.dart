@@ -8,4 +8,11 @@ class PostPlaceholderExample {
   Future<Post> getPostDetail({required int id}) async {
     return repository.getPostById(id);
   }
+
+  Future<List<Post>> getListPost({int limit = 10, int offset = 0}) async {
+    return repository.getListPost(
+      limit: limit,
+      offset: offset,
+    );
+  }
 }

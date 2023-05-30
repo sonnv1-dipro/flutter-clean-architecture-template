@@ -1,4 +1,5 @@
 import 'package:clean_architecture_template/core/widget/base_page.dart';
+import 'package:clean_architecture_template/features/auth/views/signin_page.dart';
 import 'package:clean_architecture_template/features/post/data/datasources/post_remote_data_source.dart';
 import 'package:clean_architecture_template/features/post/data/repositories/post_repository_impl.dart';
 import 'package:clean_architecture_template/features/post/domain/usercases/post_placeholder_example.dart';
@@ -13,18 +14,19 @@ class PostPage extends BasePage {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) {
-        return PostBloc(
-          usercase: PostPlaceholderExample(
-            repository: PostRepositoryImpl(
-              postRemoteDataSource: PostRemoteDataSourceImplement(),
-            ),
-          ),
-        );
-      },
-      child: const _PostBody(),
-    );
+    // return BlocProvider(
+    //   create: (context) {
+    //     return PostBloc(
+    //       usercase: PostPlaceholderExample(
+    //         repository: PostRepositoryImpl(
+    //           postRemoteDataSource: PostRemoteDataSourceImplement(),
+    //         ),
+    //       ),
+    //     );
+    //   },
+    //   child: const _PostBody(),
+    // );
+    return const _PostBody();
   }
 }
 

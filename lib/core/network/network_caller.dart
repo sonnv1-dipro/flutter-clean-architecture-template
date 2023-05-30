@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:clean_architecture_template/core/error/network_error.dart';
 import 'package:clean_architecture_template/core/network/network_response.dart';
+import 'package:clean_architecture_template/core/network/refresh_token_caller.dart';
 import 'package:dio/dio.dart';
 
 abstract class RestfulCaller<T> {
@@ -15,13 +18,19 @@ abstract class RestfulCaller<T> {
 
   RestfulCaller<T> instanceJson(T Function(Map<String, dynamic>) cb);
 
-  RestfulCaller<T> url({required String url});
+  RestfulCaller<T> url({String url, String? path});
 
   RestfulCaller<T> authentication({String? token});
 
+  RestfulCaller<T> language({String? language});
+
   RestfulCaller<T> query({Map<String, dynamic>? queryParams});
 
+  RestfulCaller<T> header({required Map<String, dynamic> queryParams});
+
   RestfulCaller<T> addQuery({required String key, required String value});
+
+  RestfulCaller<T> addHeader({required String key, required String value});
 
   RestfulCaller<T> body({Map<String, dynamic>? bodyJson});
 
@@ -35,6 +44,10 @@ abstract class RestfulCaller<T> {
 enum RestfulMethod { get, post, patch, put, delete }
 
 class Restful<T> extends RestfulCaller<T> {
+  static String? accessToken;
+  static String? refreshToken;
+  static String? acceptLanguage = "*";
+
   T Function(Map<String, dynamic>)? _intanceJsonCallback;
 
   final _dio = Dio();
@@ -69,9 +82,14 @@ class Restful<T> extends RestfulCaller<T> {
   @override
   RestfulCaller<T> authentication({String? token}) {
     if (token != null) {
-      _option.headers?.addAll({'authorization': "Bearer $token"});
+      _option.headers?.addAll({
+        HttpHeaders.authorizationHeader: "Bearer $token",
+      });
+    } else if (accessToken != null) {
+      _option.headers?.addAll({
+        HttpHeaders.authorizationHeader: "Bearer $accessToken",
+      });
     }
-    // check and get token from local
     return this;
   }
 
@@ -157,7 +175,13 @@ class Restful<T> extends RestfulCaller<T> {
         if (rs is NetworkResponse) {
           if (rs.error?.type == NetworkErrorType.unauthorized) {
             // refresh call back response here
-            return rs;
+            final result = await RefreshTokenNetwork.instance.refresh(
+              refreshToken: Restful.refreshToken ?? "",
+            );
+            if (result.isSuccess) {
+              return _getExecute();
+            }
+            throw Exception("Unauthorization");
           }
         }
         return rs;
@@ -183,7 +207,12 @@ class Restful<T> extends RestfulCaller<T> {
         if (rs is NetworkResponse) {
           if (rs.error?.type == NetworkErrorType.unauthorized) {
             // refresh call back response here
-            return rs;
+            final result = await RefreshTokenNetwork.instance.refresh(
+              refreshToken: Restful.refreshToken ?? "",
+            );
+            if (result.isSuccess) {
+              return _postExecute();
+            }
           }
         }
         return rs;
@@ -209,7 +238,12 @@ class Restful<T> extends RestfulCaller<T> {
         if (rs is NetworkResponse) {
           if (rs.error?.type == NetworkErrorType.unauthorized) {
             // refresh call back response here
-            return rs;
+            final result = await RefreshTokenNetwork.instance.refresh(
+              refreshToken: Restful.refreshToken ?? "",
+            );
+            if (result.isSuccess) {
+              return _deleteExecute();
+            }
           }
         }
         return rs;
@@ -235,7 +269,12 @@ class Restful<T> extends RestfulCaller<T> {
         if (rs is NetworkResponse) {
           if (rs.error?.type == NetworkErrorType.unauthorized) {
             // refresh call back response here
-            return rs;
+            final result = await RefreshTokenNetwork.instance.refresh(
+              refreshToken: Restful.refreshToken ?? "",
+            );
+            if (result.isSuccess) {
+              return _patchExecute();
+            }
           }
         }
         return rs;
@@ -278,6 +317,31 @@ class Restful<T> extends RestfulCaller<T> {
 
   @override
   RestfulCaller<T> build() {
+    return this;
+  }
+
+  @override
+  RestfulCaller<T> addHeader({required String key, required String value}) {
+    // HttpHeaders.contentTypeHeader
+    _option.headers?[key] = value;
+    return this;
+  }
+
+  @override
+  RestfulCaller<T> header({required Map<String, dynamic> queryParams}) {
+    queryParams.forEach((key, value) {
+      _option.headers?[key] = value;
+    });
+    return this;
+  }
+
+  @override
+  RestfulCaller<T> language({String? language}) {
+    if (language != null) {
+      _option.headers?[HttpHeaders.acceptLanguageHeader] = language;
+    } else if (acceptLanguage != null) {
+      _option.headers?[HttpHeaders.acceptLanguageHeader] = acceptLanguage;
+    }
     return this;
   }
 }

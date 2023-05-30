@@ -6,6 +6,8 @@ class NetworkResponse<T> {
   int? statusCode;
   String? message;
 
+  bool get isSuccess => statusCode == 200;
+
   NetworkResponse({this.data, this.message, this.status, this.statusCode});
 
   NetworkError? get error {
