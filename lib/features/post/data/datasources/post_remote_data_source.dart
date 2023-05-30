@@ -11,10 +11,10 @@ class PostRemoteDataSourceImplement implements PostRemoteDataSource {
     try {
       final api = Restful<PostData>()
         ..instanceJson((json) => PostData.fromJson(json))
-        ..url(url: "https://jsonplaceholder.typicode.com/todos/$id")
+        ..url(path: "/refresh-token")
+        ..authentication()
         ..get()
         ..build();
-
       final resulst = await api.execute();
       return resulst;
     } catch (e) {
