@@ -35,11 +35,14 @@ class $AssetsImagesGen {
 class $AssetsLocalesGen {
   const $AssetsLocalesGen();
 
+  /// File path: assets/locales/en.json
+  String get en => 'assets/locales/en.json';
+
   /// File path: assets/locales/vi.json
   String get vi => 'assets/locales/vi.json';
 
   /// List of all assets
-  List<String> get values => [vi];
+  List<String> get values => [en, vi];
 }
 
 class Assets {
