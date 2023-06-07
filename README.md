@@ -16,8 +16,15 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 
-## Run flutter pub get command
+## Run Flutter pub get command
 ```bash
+flutter pub run get
+```
+
+
+## Run Flutter build runner
+```bash
+flutter pub run build_runner build --delete-conflicting-outputs
 flutter pub run build_runner watch --delete-conflicting-outputs
 ```
 
@@ -31,6 +38,17 @@ flutter pub run easy_localization:generate -S assets/locales
 ```bash
 flutter pub run easy_localization:generate -S assets/locales -f keys -o locale_keys.g.dart
 ```
+
+## Register a dependency injection example:
+
+```dart
+@lazySingleton
+class A{
+  const A();
+}
+```
+then run build runner, the dependecy with automatic genarating in lib/generated/di/di.config.dart
+
 ## Network Caller
 
 This template support develop build an network call with restful API just buy build syntax.

@@ -1,4 +1,4 @@
-import 'package:clean_architecture_template/gen/assets.gen.dart';
+import 'package:clean_architecture_template/generated/assets.gen.dart';
 
 import 'res_colors.dart';
 import 'res_strings.dart';
