@@ -8,4 +8,4 @@ final getIt = GetIt.instance;
   initializerName: 'initGetIt',
   asExtension: false,
 )
-Future<void> configDependencies() async => await initGetIt(getIt);
+Future<void> configGetIt() async => await initGetIt(getIt);

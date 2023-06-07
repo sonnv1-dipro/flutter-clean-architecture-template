@@ -1,7 +1,5 @@
-import 'package:clean_architecture_template/core/network/network_caller.dart';
 import 'package:clean_architecture_template/core/network/refresh_token_caller.dart';
 import 'package:clean_architecture_template/features/auth/data/datasources/refresh_token_data_source.dart';
-import 'package:clean_architecture_template/features/auth/domain/entites/refresh_token_entity.dart';
 import 'package:clean_architecture_template/generated/codegen_loader.g.dart';
 import 'package:clean_architecture_template/root/bloc_observer.dart';
 import 'package:clean_architecture_template/root/setup.dart';
